@@ -70,6 +70,7 @@ find . -name Makefile.in | xargs touch
 %build
 
 %configure
+# Parallel build is not safe: tested by AdamW 2007/07
 make
 
 %install
@@ -96,7 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{develname}
 %defattr(-,root,root)
-%doc AUTHORS COPYING ChangeLog INSTALL TODO
+%doc AUTHORS ChangeLog TODO
 %{_includedir}/*.h
 %{_libdir}/*.so
 %{_libdir}/*.a

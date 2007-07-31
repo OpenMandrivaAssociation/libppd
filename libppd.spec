@@ -1,18 +1,23 @@
+%define name	libppd
+%define version	0.10
+%define release	%mkrel 8
 
-%define major	1
-%define libname	%mklibname ppd %{major}
+%define major		1
+%define libname		%mklibname ppd %{major}
+%define develname	%mklibname ppd -d
 
 Summary:	Library for handling PPD (PostScript Printer Description) files
-Name:		libppd
-Version:	0.10
-Release:	%mkrel 7
-License:	GPL
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+License:	GPLv2
 Group:		Publishing
 Source:		http://sourceforge.net/projects/lpr/libppd-0.10.tar.bz2
-Patch0:		libppd-0.10-libtool.patch.bz2
+Patch0:		libppd-0.10-libtool.patch
 Url:		http://sourceforge.net/projects/lpr/
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libglib-devel
+BuildRequires:	autoconf
 
 %description
 libppd is a library for handling PPD (PostScript Printer Description)
@@ -45,18 +50,19 @@ file to the printer to which the PPD file belongs, the printer does
 the job with the options as set by the user.
 
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary: Headers and links to compile against the "%{libname}" library
 Requires: 	%{libname} >= %{version}
 Provides:	libppd-devel
+Obsoletes:	%{mklibname ppd 1 -d}
 Group:		Development/C
 
-%description -n %{libname}-devel
+%description -n %{develname}
 This package contains all files which one needs to compile programs using
 the "%{libname}" library.
 
 %prep
-%setup -q -n libppd-%{version}
+%setup -q
 %patch0 -p1 -b .libtool
 autoconf
 find . -name Makefile.in | xargs touch
@@ -69,10 +75,6 @@ make
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-
-# Install doc files
-mkdir -p $RPM_BUILD_ROOT%{_docdir}/%{libname}-%{version}/
-cp AUTHORS COPYING ChangeLog INSTALL TODO $RPM_BUILD_ROOT%{_docdir}/%{libname}-%{version}/
 
 %post -n %{libname} -p /sbin/ldconfig
 
@@ -91,11 +93,10 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{libname}
 %defattr(-,root,root)
 %{_libdir}/*.so.*
-%docdir %{_docdir}/libppd-%{version}
-%{_docdir}/%{libname}-%{version}
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
+%doc AUTHORS COPYING ChangeLog INSTALL TODO
 %{_includedir}/*.h
 %{_libdir}/*.so
 %{_libdir}/*.a

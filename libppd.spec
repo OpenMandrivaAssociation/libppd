@@ -15,7 +15,6 @@ Group:		Publishing
 Source:		http://sourceforge.net/projects/lpr/libppd-0.10.tar.bz2
 Patch0:		libppd-0.10-libtool.patch
 Url:		http://sourceforge.net/projects/lpr/
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libglib-devel
 BuildRequires:	autoconf
 

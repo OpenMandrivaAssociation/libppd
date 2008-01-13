@@ -1,6 +1,6 @@
 %define name	libppd
 %define version	0.10
-%define release	%mkrel 8
+%define release	%mkrel 9
 
 %define major		1
 %define libname		%mklibname ppd %{major}

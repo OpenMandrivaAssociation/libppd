@@ -1,6 +1,5 @@
 %define name	libppd
 %define version	0.10
-%define release	%mkrel 9
 
 %define major		1
 %define libname		%mklibname ppd %{major}
@@ -9,7 +8,7 @@
 Summary:	Library for handling PPD (PostScript Printer Description) files
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 10
 License:	GPLv2
 Group:		Publishing
 Source:		http://sourceforge.net/projects/lpr/libppd-0.10.tar.bz2

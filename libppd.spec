@@ -8,7 +8,7 @@
 Summary:	Library for handling PPD (PostScript Printer Description) files
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 10
+Release:	%mkrel 11
 License:	GPLv2
 Group:		Publishing
 Source:		http://sourceforge.net/projects/lpr/libppd-0.10.tar.bz2

@@ -63,12 +63,10 @@ the "%{libname}" library.
 %prep
 %setup -q
 %patch0 -p1 -b .libtool
-autoconf
-find . -name Makefile.in | xargs touch
 
 %build
-
-%configure
+autoreconf -fi
+%configure2_5x
 # Parallel build is not safe: tested by AdamW 2007/07
 make
 

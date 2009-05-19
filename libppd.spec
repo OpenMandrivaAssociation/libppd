@@ -12,7 +12,7 @@ Release:	%mkrel 11
 License:	GPLv2
 Group:		Publishing
 Source:		http://sourceforge.net/projects/lpr/libppd-0.10.tar.bz2
-Patch0:		libppd-0.10-libtool.patch
+Patch0:		libppd-0.10-autotools.patch
 Url:		http://sourceforge.net/projects/lpr/
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	libglib-devel
@@ -62,7 +62,7 @@ the "%{libname}" library.
 
 %prep
 %setup -q
-%patch0 -p1 -b .libtool
+%patch0 -p1 -b .automake
 
 %build
 autoreconf -fi

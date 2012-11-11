@@ -1,0 +1,31 @@
+Index: libppd-0.10/src/Makefile.am
+===================================================================
+--- libppd-0.10.orig/src/Makefile.am
++++ libppd-0.10/src/Makefile.am
+@@ -1,22 +1,21 @@
+ ppdsdir= $(datadir)/postscript/ppd/
+-CFLAGS = @CFLAGS@ @WARNS@ -DPPD_PATH=\"$(ppdsdir)\"
++AM_CFLAGS = @CFLAGS@ @WARNS@ -DPPD_PATH=\"$(ppdsdir)\"
+ SUBDIRS = tests
+ 
+ INCLUDES=$(GLIB_CFLAGS) -DG_LOG_DOMAIN=\"LibPPD\"
+ bin_PROGRAMS=ppdfilt
+ lib_LTLIBRARIES=libppd.la
+-LDFLAGS=$(GLIB_LIBS)
+ include_HEADERS=ppd.h ppdenums.h ppdmacros.h
+ 
+ libppd_la_SOURCES=emit.c options.c page.c mark.c ppd.c init.c debug.h ppdfilt.h
+-libppd_la_LDFLAGS= -version-info 1:1:0
++libppd_la_LDFLAGS= -version-info 1:1:0 $(GLIB_LIBS)
+ 
+ ppdfilt_SOURCES=ppdfilt.c
+ ppdfilt_LDADD=libppd.la
+ 
+ noinst_PROGRAMS=dumpppd 
+-dumpppd_SOURCES=dumpppd.c emit.c options.c page.c mark.c ppd.c init.c \
+-	debug.h ppdfilt.h
++dumpppd_SOURCES=dumpppd.c
++dumpppd_LDADD=libppd.la
+ 
+ check_PROGRAMS=testmacros
+ testmacros_SOURCES=testmacros.c

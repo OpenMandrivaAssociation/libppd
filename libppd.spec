@@ -21,6 +21,9 @@ BuildRequires: pkgconfig(cups)
 BuildRequires: pkgconfig(zlib)
 # pdftops
 BuildRequires: poppler
+BuildRequires: (ghostscript or ghostpdl)
+Requires: poppler
+Requires: (ghostscript or ghostpdl)
 
 %description
 CUPS is a standards-based, open-source printing system.

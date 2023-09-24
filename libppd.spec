@@ -21,6 +21,7 @@ BuildRequires: pkgconfig(cups)
 BuildRequires: pkgconfig(zlib)
 # pdftops
 BuildRequires: poppler
+BuildRequires: mupdf
 BuildRequires: (ghostscript or ghostpdl)
 Requires: poppler
 Requires: (ghostscript or ghostpdl)

@@ -1,6 +1,6 @@
 %define major 2
-%define libname %mklibname cupsfilters
-%define devname %mklibname cupsfilters -d
+%define libname %mklibname ppd
+%define devname %mklibname ppd -d
 
 Name: libppd
 Version: 2.0.0
@@ -11,23 +11,14 @@ Summary: Library for dealing with PPD printer description files
 URL: https://github.com/OpenPrinting/libppd
 License: GPL
 Group: System/Libraries
-BuildRequires: pkgconfig(libpng)
-BuildRequires: pkgconfig(dbus-1)
-BuildRequires: pkgconfig(harfbuzz)
-BuildRequires: pkgconfig(freetype2)
-BuildRequires: pkgconfig(poppler-cpp)
-BuildRequires: pkgconfig(libtiff-4)
-BuildRequires: pkgconfig(libqpdf)
-BuildRequires: pkgconfig(lcms2)
-BuildRequires: pkgconfig(libjpeg)
-BuildRequires: pkgconfig(fontconfig)
-BuildRequires: pkgconfig(cups)
-BuildRequires: pkgconfig(libexif)
-BuildRequires: pkgconfig(libcupsfilters) >= 2.0.0
 BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: libtool
+BuildRequires: gettext-devel
 BuildRequires: make
+BuildRequires: pkgconfig(libcupsfilters) >= 2.0.0
+BuildRequires: pkgconfig(cups)
+BuildRequires: pkgconfig(zlib)
 # pdftops
 BuildRequires: poppler
 

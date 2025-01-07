@@ -3,10 +3,9 @@
 %define devname %mklibname ppd -d
 
 Name: libppd
-Version: 2.0.0
+Version: 2.1.0
 Release: 1
 Source0: https://github.com/OpenPrinting/libppd/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0: libppd-fix-zlib-linkage.patch
 Summary: Library for dealing with PPD printer description files
 URL: https://github.com/OpenPrinting/libppd
 License: GPL

@@ -10,6 +10,8 @@ Summary: Library for dealing with PPD printer description files
 URL: https://github.com/OpenPrinting/libppd
 License: GPL
 Group: System/Libraries
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires: autoconf
 BuildRequires: automake
 BuildRequires: libtool
